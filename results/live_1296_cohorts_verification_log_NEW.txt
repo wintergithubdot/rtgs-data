@@ -1,0 +1,117 @@
+=== FULL 1,296-COHORT AUDIT LOG STARTED AT 2026-11-02 18:31:41 ===
+
+================================================================================
+LEVEL 1: Synthetic Transitive Chain & Intra-Cluster Cross-Validation Refinement
+================================================================================
+  Eagal et al. (get_clusters.py) clusters : {1: ['SolA', 'SolB'], 2: ['SolC']}
+  RGTS (clustering.py) clusters           : {1: ['SolA', 'SolB'], 2: ['SolC']}
+  [PASS] Both implementations separated transitive non-compatible SolC identically.
+
+================================================================================
+LEVEL 2: Real Benchmark Cohort Live Clustering (real_benchmark_cohorts_fixture.json)
+================================================================================
+  [PASS - Full 256-Key Cohort] Easy/min_pos_sum_subarr/0/gpt4/pythonToJava
+         k=256 clusters identical (1 clusters) | k=32 clusters identical (1 clusters) | ARI = 1.000000
+         [LEDGER 1-TO-1 MATCH] Verified against ledger row: valid_cands=20, k32_match=True
+  [PASS - Full 256-Key Cohort] Easy/count_subarr_3_cond/0.5/gpt_3.5_turbo/java
+         k=256 clusters identical (2 clusters) | k=32 clusters identical (4 clusters) | ARI = 0.123995
+         [LEDGER 1-TO-1 MATCH] Verified against ledger row: valid_cands=20, k32_match=True
+  [PASS - Full 256-Key Cohort] Medium/mirror_score/0/gpt4/cppToJava
+         k=256 clusters identical (2 clusters) | k=32 clusters identical (2 clusters) | ARI = 1.000000
+         [LEDGER 1-TO-1 MATCH] Verified against ledger row: valid_cands=20, k32_match=True
+  [PASS - Full 256-Key Cohort] Hard/max_freq_ele_performing_ops_two/0/gpt4/cppToJava
+         k=256 clusters identical (2 clusters) | k=32 clusters identical (2 clusters) | ARI = 1.000000
+         [LEDGER 1-TO-1 MATCH] Verified against ledger row: valid_cands=20, k32_match=True
+  [PASS - Partial-Output Cohort] Easy/original_typed_str_one/1/codellama/pythonToJava (contains mid-suite timeout candidate < 256 keys)
+         ARI under Eagal common_keys = 1.000000 | ARI under RGTS fixed |T_k| = 1.000000 (0.000000 ARI difference)
+         Under both formulas, partial candidates are evaluated consistently between B0 and T_32.
+         [LEDGER 1-TO-1 MATCH] Verified against ledger row: valid_cands=7, k32_match=False
+
+================================================================================
+LEVEL 3: Computational Census & Cohort Ledger Verification
+================================================================================
+  Loading candidate ledger: audit_census_25920_candidates.csv...
+  [COMPUTED CENSUS ON 25,920 ROWS]
+    - Valid complete (256 keys)   : 19,837 (76.53%)
+    - Valid partial (< 256 keys)  : 20 (0.08%)
+    - Compiling errors            : 6,035 (23.28%)
+    - Empty dictionary ({})       : 28 (0.11%)
+    - Physically missing files    : 0 (0.00%)
+
+  [COMPUTED COHORT ERROR STRATIFICATION]
+    - Cohorts with 0 valid candidates (all 20 error) : 96 / 1,296 (7.41%)
+    - Cohorts with >= 1 valid candidate              : 1200 / 1,296 (92.59%)
+
+  Loading cohort ledger: audit_clustering_1296_cohorts.csv...
+  [COMPUTED COHORT MATCHING ON 1,296 COHORTS]
+    - k=256 Exact Partition Matches : 1292 / 1296 (99.69%)
+    - k=32  Exact Partition Matches : 1292 / 1296 (99.69%)
+    - Max ARI Difference (valid)    : 0.000000
+    - Overall Mean ARI (21 members) : 0.987962 +/- 0.074541
+================================================================================
+LEVEL 3 (FULL LIVE RECOMPUTATION): All 1,296 Cohorts from data.zip
+================================================================================
+  Source Dataset Archive : G:\My Drive\kuliah s3\disertasi\riset se2\RGTS_Research\00_sources\original_data\data.zip (866,174,636 bytes)
+  Benchmark Definition   : G:\My Drive\kuliah s3\disertasi\riset se2\RGTS_Research\10_kirim_pembimbing_backup\audit_clustering_1296_cohorts.csv
+  Executing live end-to-end clustering recomputation across 36 problems x 36 cohorts = 1,296 cohorts...
+
+  [Problem  1/36] Easy   / adj_inc_subarr                      : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (12.2s)
+  [Problem  2/36] Easy   / button_longest_push                 : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (68.7s)
+  [Problem  3/36] Easy   / count_subarr_3_cond                 : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (37.6s)
+  [Problem  4/36] Easy   / date_to_binary                      : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (28.0s)
+  [Problem  5/36] Easy   / digitville                          : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (18.7s)
+  [Problem  6/36] Easy   / min_ele_after_replacement_w_digit_sum : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (11.9s)
+  [Problem  7/36] Easy   / min_ops_make_arr_K                  : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (17.0s)
+  [Problem  8/36] Easy   / min_pos_sum_subarr                  : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (19.3s)
+  [Problem  9/36] Easy   / original_typed_str_one              : 36 cohorts | 256-key matches: 35/36 | 32-key matches: 35/36 | Max ARI diff: 0.000000 (21.9s)
+  [Problem 10/36] Easy   / smallest_divisible_digit_prod_one   : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (15.5s)
+  [Problem 11/36] Easy   / smallest_num_with_all_set_bits      : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (6.7s)
+  [Problem 12/36] Easy   / stone_removal_game                  : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (17.0s)
+  [Problem 13/36] Medium / XOR_paths                           : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (48.8s)
+  [Problem 14/36] Medium / adj_inc_subarr_dectect              : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (28.7s)
+  [Problem 15/36] Medium / beautiful_splits                    : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (19.0s)
+  [Problem 16/36] Medium / grid_sections                       : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (22.9s)
+  [Problem 17/36] Medium / max_area_point_constraints          : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (56.4s)
+  [Problem 18/36] Medium / max_coins                           : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (73.4s)
+  [Problem 19/36] Medium / max_num_dist_aft_op                 : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (7.3s)
+  [Problem 20/36] Medium / max_tar_nodes                       : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (27.0s)
+  [Problem 21/36] Medium / mirror_score                        : 36 cohorts | 256-key matches: 34/36 | 32-key matches: 34/36 | Max ARI diff: 0.000000 (5.3s)
+  [Problem 22/36] Medium / string_shift_dis                    : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (26.2s)
+  [Problem 23/36] Medium / two_days                            : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (82.9s)
+  [Problem 24/36] Medium / zero_array_transformation           : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (58.0s)
+  [Problem 25/36] Hard   / count_LCM                           : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (13.3s)
+  [Problem 26/36] Hard   / count_num_k_match_adj               : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (60.1s)
+  [Problem 27/36] Hard   / if_palindrome                       : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (13.1s)
+  [Problem 28/36] Hard   / max_area_rect_point                 : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (10.6s)
+  [Problem 29/36] Hard   / max_freq_ele_performing_ops_two     : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (23.3s)
+  [Problem 30/36] Hard   / max_fruit                           : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (99.3s)
+  [Problem 31/36] Hard   / max_score_intervals                 : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (110.1s)
+  [Problem 32/36] Hard   / max_subarr_rm                       : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (2.7s)
+  [Problem 33/36] Hard   / max_sum_weights_after_edge_removal  : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (23.4s)
+  [Problem 34/36] Hard   / min_diff_adj_ele_diff               : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (3.1s)
+  [Problem 35/36] Hard   / small_id_substring                  : 36 cohorts | 256-key matches: 35/36 | 32-key matches: 35/36 | Max ARI diff: 0.000000 (4.5s)
+  [Problem 36/36] Hard   / subsequence_unique_middle_mode      : 36 cohorts | 256-key matches: 36/36 | 32-key matches: 36/36 | Max ARI diff: 0.000000 (11.0s)
+
+================================================================================
+FULL 1,296-COHORT LIVE RECOMPUTATION AUDIT CERTIFICATE
+================================================================================
+  Total Cohorts Evaluated            : 1,296 / 1,296
+  Cohorts with Valid Candidates      : 1,200 / 1,296
+  Cohorts with 0 Valid (All-Error)   : 96 / 1,296 (7.41%)
+  Cohorts with Partial Outputs (<256): 17 / 1,296
+  k=256 Exact Partition Matches (fixed |T|): 1,292 / 1,296 (99.69%)
+  k=32  Exact Partition Matches (fixed |T|): 1,292 / 1,296 (99.69%)
+  Exact Partition Matches (common_keys)    : 1,296 / 1,296 (100.00%)
+  Maximum ARI Difference across all 1,296  : 0.000000
+  Total Live Recomputation Wall Clock Time : 1114.7 seconds (18 min 35 s)
+  [COHORT-BY-COHORT MATCH] 1,296 of 1,296 cohorts (100.0%) verified row-by-row against audit_clustering_1296_cohorts.csv!
+    - Each cohort_id, cluster counts, exact partition matches, and ARI values match ledger perfectly.
+  [PASS] 100% of all 1,296 cohorts independently recomputed and verified from raw data.zip.
+
+  [PASS] All 25,920 candidates, 1,296 cohorts, and sensitivity metrics mathematically validated.
+================================================================================
+ALL VERIFICATION LEVELS (SYNTHETIC, REAL FIXTURES, AND 1,296 COHORTS) PASSED 100%.
+
+=== AUDIT RUN FINISHED AT 2026-11-02 18:50:25 ===
+Wall Clock Elapsed : 1124.55 seconds (18m 44s)
+Exit Code          : 0

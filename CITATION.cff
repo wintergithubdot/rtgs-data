@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this software or research artifact, please cite it as below."
+authors:
+  - family-names: "Triyono"
+    given-names: "Andri"
+    affiliation: "Universitas Kristen Satya Wacana"
+  - family-names: "Sediyono"
+    given-names: "Eko"
+    affiliation: "Universitas Kristen Satya Wacana"
+  - family-names: "Hartomo"
+    given-names: "Kristoko Dwi"
+    affiliation: "Universitas Kristen Satya Wacana"
+title: "Reference-Guided Test Subsampling for Behavioral Verification of Large Language Model Generated Code Clones"
+version: 1.0.0
+url: "https://github.com/wintergithubdot/rtgs-data"
+repository-code: "https://github.com/wintergithubdot/rtgs-data"
+license: MIT
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "Triyono"
+      given-names: "Andri"
+    - family-names: "Sediyono"
+      given-names: "Eko"
+    - family-names: "Hartomo"
+      given-names: "Kristoko Dwi"
+  title: "Reference-Guided Test Subsampling for Behavioral Verification of Large Language Model Generated Code Clones"
+  journal: "The Journal of Systems and Software"
+  publisher: "Elsevier"
+  year: 2026
+  status: "in-preparation"
+  url: "https://github.com/wintergithubdot/rtgs-data"
